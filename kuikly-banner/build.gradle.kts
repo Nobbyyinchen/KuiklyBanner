@@ -44,7 +44,7 @@ publishing {
     publications.withType<MavenPublication>().configureEach {
         pom {
             name.set("KuiklyBanner")
-            description.set("Reusable PeekBannerV2 and DoubleBanner components for KuiklyUI DSL.")
+            description.set("Reusable PeekBannerV2, DoubleBanner, and VerticalBanner components for KuiklyUI DSL.")
             url.set("https://github.com/Nobbyyinchen/KuiklyBanner")
             licenses {
                 license {

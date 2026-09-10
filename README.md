@@ -1,11 +1,12 @@
 # KuiklyBanner
 
-`KuiklyBanner` 是基于 [KuiklyUI](https://github.com/Tencent-TDS/KuiklyUI) 传统 DSL 的跨端轮播组件库，包含两个不依赖业务模型和图片资源的基础组件：
+`KuiklyBanner` 是基于 [KuiklyUI](https://github.com/Tencent-TDS/KuiklyUI) 传统 DSL 的跨端轮播组件库，包含三个不依赖业务模型和图片资源的基础组件：
 
 - `PeekBannerV2`：支持露出相邻卡片、横向或纵向分页、无限循环、自动播放和自定义 Item。
 - `DoubleBanner`：支持主、副两个 PageList 双向手势联动、不同分页宽度、重叠布局、无限循环和自动播放。
+- `VerticalBanner`：支持垂直手势切换、层叠卡片、无限循环、自动播放和自定义 Item。
 
-组件源码全部位于 `commonMain`，不调用浏览器接口、不使用协程或多线程，可用于 Kuikly 动态化模式。
+三个组件均已在实际企业级 App 中使用，并支持 Android、iOS 与 HarmonyOS。组件源码全部位于 `commonMain`，不调用浏览器接口、不使用协程或多线程，可用于 Kuikly 动态化模式。
 
 ## 平台
 
@@ -43,6 +44,10 @@ implementation(project(":kuikly-banner"))
 
 `width` 是可见窗口宽度，`pageItemWidth` 是单次分页步长。让 `width` 大于 `pageItemWidth`，即可露出下一张卡片。
 
+[![PeekBannerV2 效果测试视频](docs/demo/peek-banner.png)](docs/demo/peek-banner.webm)
+
+点击预览图可播放 6 秒效果测试视频。
+
 ```kotlin
 PeekBannerV2 {
     attr {
@@ -77,6 +82,10 @@ PeekBannerV2 {
 ## DoubleBanner
 
 主、副列表可以使用不同的分页宽度。任一列表被拖动时，另一列表会按页进度实时同步。
+
+[![DoubleBanner 效果测试视频](docs/demo/double-banner.png)](docs/demo/double-banner.webm)
+
+点击预览图可播放 6 秒效果测试视频。
 
 ```kotlin
 DoubleBanner {
@@ -120,9 +129,54 @@ DoubleBanner {
 }
 ```
 
+## VerticalBanner
+
+当前卡片显示在最前方，后续卡片按照 `stackSpacing`、`scaleStep` 和 `opacityStep` 形成垂直层叠；上滑或下滑可切页。
+
+[![VerticalBanner 效果测试视频](docs/demo/vertical-banner.png)](docs/demo/vertical-banner.webm)
+
+点击预览图可播放 6 秒效果测试视频。
+
+```kotlin
+VerticalBanner {
+    attr {
+        width = 375f
+        height = 168f
+        itemHeight = 120f
+        visibleStackCount = 3
+        stackSpacing = 24f
+        scaleStep = 0.1f
+        opacityStep = 0.2f
+        loopPlayIntervalTimeMs = 3_000
+
+        initSliderItems(items) { item, _ ->
+            View {
+                attr {
+                    width(343f)
+                    height(120f)
+                    borderRadius(12f)
+                    backgroundColor(item.color)
+                }
+            }
+        }
+    }
+    event {
+        pageIndexDidChanged { params ->
+            val index = (params as JSONObject).optInt("index")
+        }
+        itemClick { params ->
+            val index = (params as JSONObject).optInt("index")
+        }
+    }
+}
+```
+
+演示视频由仓库示例参数生成，只展示通用交互和占位色块，不包含企业 App 的业务数据、品牌或图片素材。生成器见 [`docs/demo/generate-demo.html`](docs/demo/generate-demo.html)。
+
 ## 属性约束
 
 - `pageItemWidth` / `mainPageItemWidth` / `subPageItemWidth` 应大于 `0`；否则对应的分页进度同步会被安全跳过。
+- `visibleStackCount` 至少按 `1` 处理；`stackSpacing`、`scaleStep`、`opacityStep`、`swipeThreshold` 和动画时长的负值会被安全归一化。
 - `loopPlayIntervalTimeMs <= 0` 会关闭自动播放；运行时修改该值会重启计时。
 - `defaultPageIndex` 和 `scrollToPage` 的索引都是业务数据的 `0-based` 逻辑索引，不包含内部影子节点。
 - 传入 `initSliderItems` 的列表会被复制，后续修改原列表不会破坏当前轮播的索引映射；数据变化时请重新构建组件。

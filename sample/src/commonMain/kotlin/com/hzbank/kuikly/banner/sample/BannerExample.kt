@@ -2,6 +2,7 @@ package com.hzbank.kuikly.banner.sample
 
 import com.hzbank.kuikly.banner.DoubleBanner
 import com.hzbank.kuikly.banner.PeekBannerV2
+import com.hzbank.kuikly.banner.VerticalBanner
 import com.tencent.kuikly.core.base.Color
 import com.tencent.kuikly.core.base.ViewContainer
 import com.tencent.kuikly.core.nvi.serialization.json.JSONObject
@@ -110,6 +111,40 @@ fun ViewContainer<*, *>.BannerExample(onIndexChanged: (Int) -> Unit = {}) {
                 }
             }
         }
+
+        VerticalBanner {
+            attr {
+                marginTop(24f)
+                width = 375f
+                height = 168f
+                itemHeight = 120f
+                visibleStackCount = 3
+                stackSpacing = 24f
+                loopPlayIntervalTimeMs = 3_000
+                initSliderItems(exampleItems) { item, _ ->
+                    View {
+                        attr {
+                            width(343f)
+                            height(120f)
+                            borderRadius(12f)
+                            backgroundColor(item.color)
+                            allCenter()
+                        }
+                        Text {
+                            attr {
+                                text(item.title)
+                                fontSize(20f)
+                                color(Color.WHITE)
+                            }
+                        }
+                    }
+                }
+            }
+            event {
+                pageIndexDidChanged { params ->
+                    onIndexChanged((params as JSONObject).optInt("index"))
+                }
+            }
+        }
     }
 }
-

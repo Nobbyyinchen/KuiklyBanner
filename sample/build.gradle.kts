@@ -23,7 +23,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.hzbank.kuikly.banner.sample"
+    namespace = "io.github.nobbyyinchen.kuikly.banner.sample"
     compileSdk = 34
 
     defaultConfig {

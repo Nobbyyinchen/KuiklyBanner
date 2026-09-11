@@ -2,7 +2,7 @@
  * MIT License
  * Copyright (c) 2026 KuiklyBanner contributors
  */
-package com.hzbank.kuikly.banner
+package io.github.nobbyyinchen.kuikly.banner
 
 import com.tencent.kuikly.core.base.Animation
 import com.tencent.kuikly.core.base.Color

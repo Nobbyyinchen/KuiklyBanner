@@ -2,7 +2,7 @@
  * MIT License
  * Copyright (c) 2026 KuiklyBanner contributors
  */
-package com.hzbank.kuikly.banner
+package io.github.nobbyyinchen.kuikly.banner
 
 internal const val LOOP_HEAD_ITEM_COUNT = 1
 internal const val LOOP_TAIL_ITEM_COUNT = 2
@@ -52,4 +52,3 @@ internal fun toPhysicalBannerIndex(logicalIndex: Int, itemCount: Int): Int {
     if (itemCount <= 1) return 0
     return normalizeBannerIndex(logicalIndex, itemCount) + LOOP_HEAD_ITEM_COUNT
 }
-

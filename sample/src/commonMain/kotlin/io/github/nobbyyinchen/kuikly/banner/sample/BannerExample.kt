@@ -1,8 +1,8 @@
-package com.hzbank.kuikly.banner.sample
+package io.github.nobbyyinchen.kuikly.banner.sample
 
-import com.hzbank.kuikly.banner.DoubleBanner
-import com.hzbank.kuikly.banner.PeekBannerV2
-import com.hzbank.kuikly.banner.VerticalBanner
+import io.github.nobbyyinchen.kuikly.banner.DoubleBanner
+import io.github.nobbyyinchen.kuikly.banner.PeekBannerV2
+import io.github.nobbyyinchen.kuikly.banner.VerticalBanner
 import com.tencent.kuikly.core.base.Color
 import com.tencent.kuikly.core.base.ViewContainer
 import com.tencent.kuikly.core.nvi.serialization.json.JSONObject

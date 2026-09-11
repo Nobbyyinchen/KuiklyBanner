@@ -1,4 +1,4 @@
-package com.hzbank.kuikly.banner
+package io.github.nobbyyinchen.kuikly.banner
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -44,4 +44,3 @@ class LoopingBannerModelTest {
         assertEquals(2, toPhysicalBannerIndex(4, 3))
     }
 }
-

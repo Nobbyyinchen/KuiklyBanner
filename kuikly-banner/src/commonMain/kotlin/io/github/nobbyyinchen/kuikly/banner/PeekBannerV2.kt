@@ -2,7 +2,7 @@
  * MIT License
  * Copyright (c) 2026 KuiklyBanner contributors
  */
-package com.hzbank.kuikly.banner
+package io.github.nobbyyinchen.kuikly.banner
 
 import com.tencent.kuikly.core.base.ComposeAttr
 import com.tencent.kuikly.core.base.ComposeEvent
@@ -239,4 +239,3 @@ typealias PeekBannerV2ItemCreator<T> =
 fun ViewContainer<*, *>.PeekBannerV2(init: PeekBannerV2View.() -> Unit) {
     addChild(PeekBannerV2View(), init)
 }
-

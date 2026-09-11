@@ -8,8 +8,3 @@ local.properties
 *.log
 node_modules/
 Kotlin-js-store/
-
-# The parent repository ignores every directory named commonTest. Keep this
-# standalone library's tests trackable while it is prepared inside that repo.
-!**/commonTest/
-!**/commonTest/**

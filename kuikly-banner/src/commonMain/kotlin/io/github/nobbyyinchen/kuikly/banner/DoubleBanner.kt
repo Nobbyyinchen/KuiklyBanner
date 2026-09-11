@@ -2,7 +2,7 @@
  * MIT License
  * Copyright (c) 2026 KuiklyBanner contributors
  */
-package com.hzbank.kuikly.banner
+package io.github.nobbyyinchen.kuikly.banner
 
 import com.tencent.kuikly.core.base.ComposeAttr
 import com.tencent.kuikly.core.base.ComposeEvent
@@ -356,4 +356,3 @@ typealias DoubleBannerItemCreator<T> =
 fun ViewContainer<*, *>.DoubleBanner(init: DoubleBannerView.() -> Unit) {
     addChild(DoubleBannerView(), init)
 }
-

@@ -8,6 +8,8 @@
 
 三个组件均已在实际企业级 App 中使用，并支持 Android、iOS 与 HarmonyOS。组件源码全部位于 `commonMain`，不调用浏览器接口、不使用协程或多线程，可用于 Kuikly 动态化模式。
 
+本仓库是独立维护、独立构建和独立发布的开源项目，不依赖原业务工程、业务包名、业务模型、埋点接口或私有资源。公共 Kotlin 包名为 `io.github.nobbyyinchen.kuikly.banner`。
+
 ## 平台
 
 | Android | iOS | HarmonyOS | H5 / 小程序 | 动态化 |
@@ -28,7 +30,7 @@ macOS、Linux、Windows 和 tvOS 尚未纳入 CI 验证范围，因此当前不�
 
 ```kotlin
 dependencies {
-    implementation("com.hzbank.kuikly:kuikly-banner:1.0.0")
+    implementation("io.github.nobbyyinchen.kuikly:kuikly-banner:1.0.0")
 }
 ```
 
@@ -181,7 +183,7 @@ VerticalBanner {
 - `defaultPageIndex` 和 `scrollToPage` 的索引都是业务数据的 `0-based` 逻辑索引，不包含内部影子节点。
 - 传入 `initSliderItems` 的列表会被复制，后续修改原列表不会破坏当前轮播的索引映射；数据变化时请重新构建组件。
 
-完整示例见 [`BannerExample.kt`](sample/src/commonMain/kotlin/com/hzbank/kuikly/banner/sample/BannerExample.kt)。
+完整示例见 [`BannerExample.kt`](sample/src/commonMain/kotlin/io/github/nobbyyinchen/kuikly/banner/sample/BannerExample.kt)。
 
 ## 构建与测试
 

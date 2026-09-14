@@ -152,13 +152,18 @@ function drawFrame(seconds) {
 }
 
 async function record() {
-  const mimeType = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"]
-    .find(type => MediaRecorder.isTypeSupported(type));
-  if (!mimeType) throw new Error("WebM recording is not supported by this browser");
+  const output = [
+    { mimeType: "video/mp4;codecs=avc1.42E01E", extension: "mp4" },
+    { mimeType: "video/mp4", extension: "mp4" },
+    { mimeType: "video/webm;codecs=vp9", extension: "webm" },
+    { mimeType: "video/webm;codecs=vp8", extension: "webm" },
+    { mimeType: "video/webm", extension: "webm" },
+  ].find(candidate => MediaRecorder.isTypeSupported(candidate.mimeType));
+  if (!output) throw new Error("MP4/WebM recording is not supported by this browser");
 
   const chunks = [];
   const recorder = new MediaRecorder(canvas.captureStream(30), {
-    mimeType,
+    mimeType: output.mimeType,
     videoBitsPerSecond: 1_600_000,
   });
   recorder.ondataavailable = event => {
@@ -179,10 +184,10 @@ async function record() {
   recorder.stop();
   await stopped;
 
-  const blob = new Blob(chunks, { type: mimeType });
+  const blob = new Blob(chunks, { type: output.mimeType });
   const anchor = document.createElement("a");
   anchor.href = URL.createObjectURL(blob);
-  anchor.download = `${demo}-banner.webm`;
+  anchor.download = `${demo}-banner.${output.extension}`;
   anchor.click();
 }
 

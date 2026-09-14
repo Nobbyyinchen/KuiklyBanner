@@ -46,7 +46,7 @@ implementation(project(":kuikly-banner"))
 
 `width` 是可见窗口宽度，`pageItemWidth` 是单次分页步长。让 `width` 大于 `pageItemWidth`，即可露出下一张卡片。
 
-[![PeekBannerV2 效果测试视频](docs/demo/peek-banner.png)](docs/demo/peek-banner.webm)
+[![PeekBannerV2 效果测试视频](docs/demo/peek-banner.png)](docs/demo/peek-banner.mp4?raw=1)
 
 点击预览图可播放 6 秒效果测试视频。
 
@@ -85,7 +85,7 @@ PeekBannerV2 {
 
 主、副列表可以使用不同的分页宽度。任一列表被拖动时，另一列表会按页进度实时同步。
 
-[![DoubleBanner 效果测试视频](docs/demo/double-banner.png)](docs/demo/double-banner.webm)
+[![DoubleBanner 效果测试视频](docs/demo/double-banner.png)](docs/demo/double-banner.mp4?raw=1)
 
 点击预览图可播放 6 秒效果测试视频。
 
@@ -135,7 +135,7 @@ DoubleBanner {
 
 当前卡片显示在最前方，后续卡片按照 `stackSpacing`、`scaleStep` 和 `opacityStep` 形成垂直层叠；上滑或下滑可切页。
 
-[![VerticalBanner 效果测试视频](docs/demo/vertical-banner.png)](docs/demo/vertical-banner.webm)
+[![VerticalBanner 效果测试视频](docs/demo/vertical-banner.png)](docs/demo/vertical-banner.mp4?raw=1)
 
 点击预览图可播放 6 秒效果测试视频。
 

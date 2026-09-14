@@ -21,7 +21,8 @@ async function main() {
       path: path.join(__dirname, `${demo}-banner.png`),
     });
     const download = await downloadPromise;
-    await download.saveAs(path.join(__dirname, `${demo}-banner.webm`));
+    const extension = path.extname(download.suggestedFilename()) || ".mp4";
+    await download.saveAs(path.join(__dirname, `${demo}-banner${extension}`));
   }
 
   await browser.close();

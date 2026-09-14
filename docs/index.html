@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KuiklyBanner 三个跨端轮播组件的在线播放示例">
+  <title>KuiklyBanner 演示视频</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #17233d;
+      background: #f5f7fb;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+    header { margin-bottom: 32px; }
+    h1 { margin: 0 0 12px; font-size: clamp(32px, 6vw, 48px); }
+    header p { margin: 0; color: #64748b; line-height: 1.7; }
+    section {
+      scroll-margin-top: 24px;
+      margin-top: 28px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 14px 40px rgba(23, 35, 61, 0.08);
+    }
+    h2 { margin: 0 0 8px; font-size: 24px; }
+    section p { margin: 0 0 18px; color: #64748b; }
+    video { display: block; width: 100%; border-radius: 14px; background: #eef2f8; }
+    footer { margin-top: 32px; text-align: center; color: #64748b; }
+    a { color: #315efb; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>KuiklyBanner</h1>
+      <p>点击播放器即可预览三个 Kuikly DSL 基础轮播组件。视频采用 H.264 MP4，兼容主流桌面与移动浏览器。</p>
+    </header>
+
+    <section id="peek-banner-v2">
+      <h2>PeekBannerV2</h2>
+      <p>相邻卡片露出、无限循环与自动播放。</p>
+      <video controls playsinline preload="metadata" poster="demo/peek-banner.png">
+        <source src="demo/peek-banner.mp4" type="video/mp4">
+        当前浏览器不支持 HTML5 视频播放。
+      </video>
+    </section>
+
+    <section id="double-banner">
+      <h2>DoubleBanner</h2>
+      <p>主副区域使用不同分页宽度并保持滑动同步。</p>
+      <video controls playsinline preload="metadata" poster="demo/double-banner.png">
+        <source src="demo/double-banner.mp4" type="video/mp4">
+        当前浏览器不支持 HTML5 视频播放。
+      </video>
+    </section>
+
+    <section id="vertical-banner">
+      <h2>VerticalBanner</h2>
+      <p>垂直手势、层叠卡片与循环自动播放。</p>
+      <video controls playsinline preload="metadata" poster="demo/vertical-banner.png">
+        <source src="demo/vertical-banner.mp4" type="video/mp4">
+        当前浏览器不支持 HTML5 视频播放。
+      </video>
+    </section>
+
+    <footer>
+      <a href="https://github.com/Nobbyyinchen/KuiklyBanner">返回 KuiklyBanner GitHub 仓库</a>
+    </footer>
+  </main>
+</body>
+</html>
